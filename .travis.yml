@@ -1,6 +1,14 @@
 # running on container-based infrastructure
 sudo: false
 
+cache:
+  directories:
+  - "^/tmp/vscode-ripgrep-cache-.*$"
 language: node_js
 node_js:
   - "node"
+install:
+  - ls -l /tmp/vscode-ripgrep-cache-1.2.4 || true
+  - mkdir -p /tmp/vscode-ripgrep-cache-1.2.4
+  - wget https://github.com/roblourens/ripgrep/releases/download/0.10.0-pcre/ripgrep-0.10.0-pcre-linux-x64.zip -O /tmp/vscode-ripgrep-cache-1.2.4/ripgrep-0.10.0-pcre-linux-x64.zip
+  - ls -l /tmp/vscode-ripgrep-cache-1.2.4
