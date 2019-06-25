@@ -7,8 +7,21 @@ cache:
 language: node_js
 node_js:
   - "node"
+before_install:
+  - |
+    if ! [ "$BEFORE_DEPLOY_HAS_RAN" ]; then
+      export BEFORE_DEPLOY_HAS_RAN=1
+      echo haha1
+    fi
 install:
   - ls -l /tmp/vscode-ripgrep-cache-1.2.4 || true
   - mkdir -p /tmp/vscode-ripgrep-cache-1.2.4
   - wget https://github.com/roblourens/ripgrep/releases/download/0.10.0-pcre/ripgrep-0.10.0-pcre-linux-x64.zip -O /tmp/vscode-ripgrep-cache-1.2.4/ripgrep-0.10.0-pcre-linux-x64.zip
   - ls -l /tmp/vscode-ripgrep-cache-1.2.4
+  
+  - |
+    if ! [ "$BEFORE_DEPLOY_HAS_RAN" ]; then
+      export BEFORE_DEPLOY_HAS_RAN=1
+      echo haha2
+    fi
+    echo haha3
